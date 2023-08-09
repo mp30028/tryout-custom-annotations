@@ -9,7 +9,7 @@ public class PersonBuilderUnitTest {
     @Test
     public void whenBuildPersonWithBuilder_thenObjectHasPropertyValues() {
 
-//        Person person = new PersonBuilder().setAge(25).setName("John").build();
+//        Example person = new PersonBuilder().setAge(25).setName("John").build();
 //
 //        assertEquals(25, person.getAge());
 //        assertEquals("John", person.getName());

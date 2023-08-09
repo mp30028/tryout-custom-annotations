@@ -1,6 +1,6 @@
 package com.zonesoft.annotations.processors;
 
-import static com.zonesoft.annotations.utils.Utilities.writeMsg;
+import static com.zonesoft.annotations.utilities.WriteMessage.writeMsg;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -18,8 +18,8 @@ import javax.tools.ToolProvider;
 
 import org.junit.jupiter.api.Test;
 
-import com.zonesoft.annotations.processors.BuilderProcessor;
-class ProcessorRunner {
+import com.zonesoft.annotations.processors.InspectProcessor;
+class InspectProcessorRunner {
 
 	   @Test
 	   public void runBuilderProcessor() throws Exception {
@@ -28,7 +28,7 @@ class ProcessorRunner {
 	      Iterable<JavaFileObject> files = getSourceFiles(source);	      
 	      JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
 	      CompilationTask task = compiler.getTask(new PrintWriter(System.out), null, null, null, null, files);
-	      task.setProcessors(Arrays.asList(new BuilderProcessor()));
+	      task.setProcessors(Arrays.asList(new InspectProcessor()));
 	      task.call();
 	   }
 

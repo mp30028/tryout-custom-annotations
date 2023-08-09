@@ -1,8 +1,8 @@
-package com.zonesoft.annotation;
+package com.zonesoft.annotations.samples;
 
-import com.zonesoft.annotations.processors.BuilderProperty;
+import com.zonesoft.annotations.processors.Inspect;
 
-public class Person {
+public class LocalExample {
 
     private int age;
 
@@ -13,7 +13,7 @@ public class Person {
         return age;
     }
 
-    @BuilderProperty
+    @Inspect
     public void setAge(int age) {
         this.age = age;
     }
@@ -22,7 +22,7 @@ public class Person {
         return name;
     }
 
-    @BuilderProperty
+    @Inspect
     public void setName(String name) {
         this.name = name;
     }
