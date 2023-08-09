@@ -1,8 +1,10 @@
 package com.zonesoft.annotation.usage;
 
+import com.zonesoft.annotations.e2e_testing.PageModel;
 import com.zonesoft.annotations.processors.Inspect;
 
-public class Example {
+@PageModel
+public class Blue {
 
     private int age;
 

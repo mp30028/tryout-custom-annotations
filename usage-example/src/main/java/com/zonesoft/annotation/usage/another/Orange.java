@@ -2,7 +2,7 @@ package com.zonesoft.annotation.usage.another;
 
 import com.zonesoft.annotations.processors.Inspect;
 
-public class Example {
+public class Orange {
     private int agezz;
 
     

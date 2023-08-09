@@ -100,7 +100,7 @@ public class InspectProcessor extends AbstractProcessor {
 	}
 	
 	private void markWithErrors(List<Element> invalidMethods) {
-		invalidMethods.forEach(element -> processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, "@Inspect must be applied to a setXxx method with a single argument", element));		
+		invalidMethods.forEach(element -> processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, "@PageModel must be applied to a setXxx method with a single argument", element));		
 	}
 
     
