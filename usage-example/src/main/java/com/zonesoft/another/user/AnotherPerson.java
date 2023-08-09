@@ -1,6 +1,6 @@
 package com.zonesoft.another.user;
 
-import com.zonesoft.annotation.processor.BuilderProperty;
+import com.zonesoft.annotations.processors.BuilderProperty;
 
 public class AnotherPerson {
     private int agezz;

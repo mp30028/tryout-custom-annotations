@@ -1,16 +1,16 @@
 //------------- Inspection Data ---------------- 
 
-//PACKAGE-NAME: com.zonesoft.annotation.samples, CLASS-NAME: com.zonesoft.annotation.samples.AnotherPerson, METHOD-NAME: setAgezz
+//PACKAGE-NAME: com.zonesoft.annotations.samples, CLASS-NAME: com.zonesoft.annotations.samples.AnotherPerson, METHOD-NAME: setAgezz
 
 //------------- Inspection Data ---------------- 
 
-//PACKAGE-NAME: com.zonesoft.annotation.samples, CLASS-NAME: com.zonesoft.annotation.samples.AnotherPerson, METHOD-NAME: setNamezz
+//PACKAGE-NAME: com.zonesoft.annotations.samples, CLASS-NAME: com.zonesoft.annotations.samples.AnotherPerson, METHOD-NAME: setNamezz
 
 //------------- Inspection Data ---------------- 
 
-//PACKAGE-NAME: com.zonesoft.annotation.samples, CLASS-NAME: com.zonesoft.annotation.samples.Person, METHOD-NAME: setAge
+//PACKAGE-NAME: com.zonesoft.annotations.samples, CLASS-NAME: com.zonesoft.annotations.samples.Person, METHOD-NAME: setAge
 
 //------------- Inspection Data ---------------- 
 
-//PACKAGE-NAME: com.zonesoft.annotation.samples, CLASS-NAME: com.zonesoft.annotation.samples.Person, METHOD-NAME: setName
+//PACKAGE-NAME: com.zonesoft.annotations.samples, CLASS-NAME: com.zonesoft.annotations.samples.Person, METHOD-NAME: setName
 

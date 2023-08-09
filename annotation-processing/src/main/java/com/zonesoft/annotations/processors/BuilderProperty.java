@@ -1,4 +1,4 @@
-package com.zonesoft.annotation.processor;
+package com.zonesoft.annotations.processors;
 
 import java.lang.annotation.*;
 

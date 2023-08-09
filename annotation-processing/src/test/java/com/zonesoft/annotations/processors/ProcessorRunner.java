@@ -1,4 +1,6 @@
-package com.zonesoft.annotation.processor;
+package com.zonesoft.annotations.processors;
+
+import static com.zonesoft.annotations.utils.Utilities.writeMsg;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -15,7 +17,8 @@ import javax.tools.StandardLocation;
 import javax.tools.ToolProvider;
 
 import org.junit.jupiter.api.Test;
-import static com.zonesoft.annotation.utils.Utilities.writeMsg;
+
+import com.zonesoft.annotations.processors.BuilderProcessor;
 class ProcessorRunner {
 
 	   @Test

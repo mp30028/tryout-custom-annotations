@@ -1,6 +1,6 @@
-package com.zonesoft.annotation.samples;
+package com.zonesoft.annotations.samples;
 
-import com.zonesoft.annotation.processor.BuilderProperty;
+import com.zonesoft.annotations.processors.BuilderProperty;
 
 public class Person {
 
