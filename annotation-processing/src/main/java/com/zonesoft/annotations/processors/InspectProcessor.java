@@ -1,6 +1,6 @@
 package com.zonesoft.annotations.processors;
 
-import static com.zonesoft.annotations.utils.Utilities.writeMsg;
+import static com.zonesoft.annotations.utilities.WriteMessage.writeMsg;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,10 +19,10 @@ import javax.tools.Diagnostic;
 
 import com.google.auto.service.AutoService;
 
-@SupportedAnnotationTypes("com.zonesoft.annotations.processors.BuilderProperty")
+@SupportedAnnotationTypes("com.zonesoft.annotations.processors.Inspect")
 @SupportedSourceVersion(SourceVersion.RELEASE_17)
 @AutoService(Processor.class)
-public class BuilderProcessor extends AbstractProcessor {
+public class InspectProcessor extends AbstractProcessor {
 	
 	@Override
     public boolean process(Set<? extends TypeElement> supportedAnnotations, RoundEnvironment roundEnv) {		
@@ -100,7 +100,7 @@ public class BuilderProcessor extends AbstractProcessor {
 	}
 	
 	private void markWithErrors(List<Element> invalidMethods) {
-		invalidMethods.forEach(element -> processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, "@BuilderProperty must be applied to a setXxx method with a single argument", element));		
+		invalidMethods.forEach(element -> processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, "@Inspect must be applied to a setXxx method with a single argument", element));		
 	}
 
     

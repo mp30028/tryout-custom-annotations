@@ -1,10 +1,8 @@
-package com.zonesoft.annotations.utils;
-
-
+package com.zonesoft.annotations.utilities;
 
 import java.text.MessageFormat;
 
-public class Utilities {
+public class WriteMessage {
 
 	public static void writeMsg(String message, Object... params) {
 		StackTraceElement element = Thread.currentThread().getStackTrace()[2];
