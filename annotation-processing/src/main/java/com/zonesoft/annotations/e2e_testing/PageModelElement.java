@@ -2,8 +2,7 @@ package com.zonesoft.annotations.e2e_testing;
 
 import java.lang.annotation.*;
 
-@Target(ElementType.TYPE)
+@Target(ElementType.FIELD)
 @Retention(RetentionPolicy.SOURCE)
-public @interface PageModel {
-	   String pagePath() default "";	    
+public @interface PageModelElement {
 }
