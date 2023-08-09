@@ -1,4 +1,6 @@
-package com.zonesoft.annotation.processor;
+package com.zonesoft.annotations.processors;
+
+import static com.zonesoft.annotations.utils.Utilities.writeMsg;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,9 +20,8 @@ import javax.tools.JavaFileObject;
 //import org.slf4j.LoggerFactory;
 
 import com.google.auto.service.AutoService;
-import static com.zonesoft.annotation.utils.Utilities.writeMsg;
 
-@SupportedAnnotationTypes("com.zonesoft.annotation.processor.BuilderProperty")
+@SupportedAnnotationTypes("com.zonesoft.annotations.processors.BuilderProperty")
 @SupportedSourceVersion(SourceVersion.RELEASE_17)
 @AutoService(Processor.class)
 public class BuilderProcessor extends AbstractProcessor {
