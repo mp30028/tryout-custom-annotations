@@ -10,7 +10,7 @@ public class Colours {
 	@PageModelElement public static String GREEN;
 	@PageModelElement public static String BLUE;
 	@PageModelElement public static String YELLOW;
-	@PageModelElement public static String ORANGE;
+	public static String ORANGE;
 
 
 }
