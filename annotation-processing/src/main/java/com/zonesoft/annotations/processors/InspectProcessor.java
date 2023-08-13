@@ -1,7 +1,5 @@
 package com.zonesoft.annotations.processors;
 
-import static com.zonesoft.annotations.utilities.WriteMessage.writeMsg;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -15,7 +13,6 @@ import javax.lang.model.element.Element;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.type.ExecutableType;
 import javax.tools.Diagnostic;
-//import javax.tools.JavaFileObject;
 
 import com.google.auto.service.AutoService;
 
@@ -26,11 +23,9 @@ public class InspectProcessor extends AbstractProcessor {
 	
 	@Override
     public boolean process(Set<? extends TypeElement> supportedAnnotations, RoundEnvironment roundEnv) {		
-//		writeMsg("supportedAnnotations.size() = {0}", supportedAnnotations.size());
 		if (supportedAnnotations.size() > 0) {
 			List<Element> annotatedSetters = getAnnotatedSetters(supportedAnnotations, roundEnv);
-//			writeMsg("annotatedSetters.size() = {0}", annotatedSetters.size());
-//			writeInspectionFile(annotatedSetters);	     	    	    				
+
 		}		
     	return true;
     }

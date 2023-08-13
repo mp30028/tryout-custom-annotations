@@ -1,6 +1,6 @@
-package com.zonesoft.annotations.samples;
+package com.zonesoft.annotation_processing_samples;
 
-import static com.zonesoft.annotations.samples.ColoursLocal.*;
+import static com.zonesoft.annotation_processing_samples.ColoursLocal.*;
 
 public class AbstractColoursLocal {
 	public AbstractColoursLocal() {

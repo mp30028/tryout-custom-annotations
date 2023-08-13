@@ -1,4 +1,4 @@
-package com.zonesoft.annotations.samples;
+package com.zonesoft.annotation_processing_samples;
 
 import com.zonesoft.annotations.processors.Inspect;
 
