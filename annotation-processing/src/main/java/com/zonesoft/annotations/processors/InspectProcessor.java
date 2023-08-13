@@ -26,11 +26,11 @@ public class InspectProcessor extends AbstractProcessor {
 	
 	@Override
     public boolean process(Set<? extends TypeElement> supportedAnnotations, RoundEnvironment roundEnv) {		
-		writeMsg("supportedAnnotations.size() = {0}", supportedAnnotations.size());
+//		writeMsg("supportedAnnotations.size() = {0}", supportedAnnotations.size());
 		if (supportedAnnotations.size() > 0) {
 			List<Element> annotatedSetters = getAnnotatedSetters(supportedAnnotations, roundEnv);
-			writeMsg("annotatedSetters.size() = {0}", annotatedSetters.size());
-			writeInspectionFile(annotatedSetters);	     	    	    				
+//			writeMsg("annotatedSetters.size() = {0}", annotatedSetters.size());
+//			writeInspectionFile(annotatedSetters);	     	    	    				
 		}		
     	return true;
     }

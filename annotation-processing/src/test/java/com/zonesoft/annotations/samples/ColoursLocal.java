@@ -5,7 +5,7 @@ import com.zonesoft.annotations.e2e_testing.PageModelElement;
 
 @PageModel(pagePath = "/")
 
-public class Colours {
+public class ColoursLocal {
 	
 	@PageModelElement public static String GREEN;
 	@PageModelElement public static String BLUE;

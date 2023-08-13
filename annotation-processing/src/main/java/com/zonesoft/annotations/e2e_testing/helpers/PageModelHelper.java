@@ -1,8 +1,10 @@
 package com.zonesoft.annotations.e2e_testing.helpers;
 
 import java.lang.annotation.Annotation;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import javax.annotation.processing.RoundEnvironment;
@@ -13,7 +15,15 @@ import javax.lang.model.element.TypeElement;
 import com.zonesoft.annotations.e2e_testing.PageModelElement;
 import static com.zonesoft.annotations.utilities.WriteMessage.writeMsg;
 
+
+
 public class PageModelHelper {
+	
+	public enum NameTypes{
+		fullyQualifiedClassName,
+		simpleClassName,
+		packageName
+	}	
 	
 	private final Set<? extends TypeElement> classAnnotations;
 	private final RoundEnvironment roundEnv;
@@ -42,7 +52,7 @@ public class PageModelHelper {
 		Set<Element> filteredElements = new HashSet<>();
 			try {
 				List<Element> enclosedElements = (List<Element>) annotatedClass.getEnclosedElements();
-				writeMsg("enclosedAnnotations.size()={0}", enclosedElements.size());
+//				writeMsg("enclosedAnnotations.size()={0}", enclosedElements.size());
 				if (Objects.nonNull(enclosedElements)) {
 					for(Element enclosedElement: enclosedElements) {						
 						Annotation pageModelElementAnnotation = getAnnotationByName(enclosedElement, annotatedBy);
@@ -56,9 +66,31 @@ public class PageModelHelper {
 			}					
 		return filteredElements;
 	}
-
+	
+	public Map<NameTypes, String> getNames(Element annotatedClass){
+		String fullyQualifiedClassName = ((TypeElement) annotatedClass).getQualifiedName().toString();
+		String simpleClassName = annotatedClass.getSimpleName().toString();				
+		String packageName = parsePackageNameFromFullyQualifedName(fullyQualifiedClassName);
+		Map<NameTypes, String> names = new HashMap<>();
+		names.put(NameTypes.fullyQualifiedClassName, fullyQualifiedClassName);
+		names.put(NameTypes.simpleClassName, simpleClassName);
+		names.put(NameTypes.packageName, packageName);
+		return names;		
+	}
+	
+	public String parsePackageNameFromFullyQualifedName(String fullyQualifiedClassName) {
+		String packageName;
+		int lastDot = fullyQualifiedClassName.lastIndexOf('.');
+		if (lastDot > 0) {
+			packageName = fullyQualifiedClassName.substring(0, lastDot);
+		}else {
+			packageName = "";
+		}
+		return packageName;
+	}
+	
 	@SuppressWarnings("unchecked")
-	private Annotation getAnnotationByName(Element elementToInspect, String fullyQualifiedAnnotationName) {
+	public Annotation getAnnotationByName(Element elementToInspect, String fullyQualifiedAnnotationName) {
     	try {		
     		Annotation[] pageModelElementAnnotation = null;
     		Class<?> annotationClass = Class.forName(fullyQualifiedAnnotationName);
@@ -94,7 +126,7 @@ public class PageModelHelper {
 			}
 	}
 
-	private boolean isClassOrInterface(Element annotatedElement) {
+	public boolean isClassOrInterface(Element annotatedElement) {
 		return ((annotatedElement.getKind() == ElementKind.CLASS) ||(annotatedElement.getKind() == ElementKind.INTERFACE));		
 	}	
 }
