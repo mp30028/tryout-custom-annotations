@@ -19,7 +19,6 @@ import javax.tools.ToolProvider;
 import org.junit.jupiter.api.Test;
 
 import com.zonesoft.annotations.e2e_testing.PageModelProcessor;
-import com.zonesoft.annotations.processors.InspectProcessor;
 class PageModelProcessorRunner {
 
 	   @Test
