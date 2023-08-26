@@ -7,6 +7,11 @@
     <groupId>com.zonesoft</groupId>
     <artifactId>tryout-custom-annotations</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+
+    <modules>
+        <module>annotation-processing</module>
+        <module>usage-example</module>
+    </modules>
     
     <dependencies>
 		<dependency>
@@ -32,10 +37,7 @@
             <version>${logback.version}</version>
         </dependency>
     </dependencies>
-    <modules>
-        <module>annotation-processing</module>
-        <module>usage-example</module>
-    </modules>
+
     <properties>
         <junit-jupiter.version>5.9.2</junit-jupiter.version>
         <maven.compiler.source>17</maven.compiler.source>

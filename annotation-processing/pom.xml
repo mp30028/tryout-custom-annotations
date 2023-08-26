@@ -13,12 +13,12 @@
     </parent>
 
     <dependencies>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
-			<version>${junit-jupiter.version}</version>
-			<scope>test</scope>
-		</dependency>		
+<!--		<dependency>-->
+<!--			<groupId>org.junit.jupiter</groupId>-->
+<!--			<artifactId>junit-jupiter-engine</artifactId>-->
+<!--			<version>${junit-jupiter.version}</version>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>		-->
         <dependency>
             <groupId>com.google.auto.service</groupId>
             <artifactId>auto-service</artifactId>
@@ -29,7 +29,7 @@
 
     <properties>
         <auto-service.version>1.0-rc2</auto-service.version>
-        <junit-jupiter.version>5.9.2</junit-jupiter.version>
+<!--        <junit-jupiter.version>5.9.2</junit-jupiter.version>-->
     </properties>
 
 </project>

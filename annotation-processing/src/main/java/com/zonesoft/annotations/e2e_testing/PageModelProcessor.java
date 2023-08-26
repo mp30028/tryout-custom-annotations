@@ -4,12 +4,10 @@ import java.io.IOException;
 //import java.io.PrintWriter;
 import java.io.Writer;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 import javax.annotation.processing.*;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
-import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
 import javax.tools.JavaFileObject;
 import javax.tools.Diagnostic;
@@ -31,6 +29,7 @@ public class PageModelProcessor extends AbstractProcessor {
     public boolean process(Set<? extends TypeElement> supportedAnnotations, RoundEnvironment roundEnv) {		
 		PageModelHelper helper = new PageModelHelper(supportedAnnotations, roundEnv);
 		Set<Element> annotatedClasses = helper.fetchAllAnnotatedClasses();
+		
 		for (Element annotatedClass: annotatedClasses) {
 			writeExtenderFile(annotatedClass, helper);
 		}

@@ -25,7 +25,10 @@ class PageModelProcessorRunner {
 	   public void runBuilderProcessor() throws Exception {
 	      String source = System.getProperty("user.dir");
 	      writeMsg("source={0}", source);
-	      Iterable<JavaFileObject> files = getSourceFiles(source);	      
+	      Iterable<JavaFileObject> files = getSourceFiles(source);
+	      for(JavaFileObject fileObj: files) {
+	    	  writeMsg("fileObj={0}", fileObj.getName());
+	      }
 	      JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
 	      CompilationTask task = compiler.getTask(new PrintWriter(System.out), null, null, null, null, files);
 	      task.setProcessors(Arrays.asList(new PageModelProcessor()));

@@ -1,4 +1,4 @@
-package com.zonesoft.annotation.usage;
+package com.zonesoft.annotations.usage;
 
 import com.zonesoft.annotations.e2e_testing.PageModelElement;
 
