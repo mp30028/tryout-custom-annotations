@@ -27,12 +27,12 @@ public class PageModelProcessor extends AbstractProcessor {
 		Set<Element> annotatedClasses = helper.fetchAllAnnotatedClasses();
 		
 		for (Element annotatedClass: annotatedClasses) {
-			writeExtenderFile(annotatedClass, helper);
+			writeImplementationClass(annotatedClass, helper);
 		}
     	return true;
     }
 		
-	private void writeExtenderFile(Element annotatedClass, PageModelHelper helper) {
+	private void writeImplementationClass(Element annotatedClass, PageModelHelper helper) {
 		Set<Element> containedElements = helper.fetchAllClassElementsAnnotatedBy(annotatedClass, PAGE_MODEL_ELEMENT);		
 		Map<NameTypes, String> names = helper.getNames(annotatedClass);
 		String simpleClassName = names.get(NameTypes.simpleClassName);
@@ -40,6 +40,7 @@ public class PageModelProcessor extends AbstractProcessor {
 		String fullyQualifiedClassName = names.get(NameTypes.fullyQualifiedClassName);;
 		String targetSimpleClassName = simpleClassName + IMPLEMENTATION_SUFFIX;
 		String fullyQualifiedTargetClassName = packageName + "." + targetSimpleClassName;
+		
 		Writer out = null;
 		try {
 			JavaFileObject builderFile = processingEnv.getFiler().createSourceFile(fullyQualifiedTargetClassName);
@@ -54,15 +55,16 @@ public class PageModelProcessor extends AbstractProcessor {
               
             // Write Start of class definition
               	out.write("public class "); out.write(targetSimpleClassName); out.write(" implements "); out.write(simpleClassName); out.write("{\n");
-            // Write class methods
-      		for(Element annotatedClassElement: containedElements) {
-            	  String annotatedClassElementName = annotatedClassElement.getSimpleName().toString();
-            	  out.write("\t\t\n");
-            	  out.write("@Override\n");
-            	  out.write("public String "); out.write(annotatedClassElementName); out.write("() {\n ");
-            	  out.write("return \"");out.write(annotatedClassElementName); out.write("\";\n");
-            	  out.write("}\n\n");
-        		}
+              	
+	            // Write class methods
+	      		for(Element annotatedClassElement: containedElements) {
+	            	  String annotatedClassElementName = annotatedClassElement.getSimpleName().toString();
+	            	  out.write("\n");
+	            	  out.write("\t@Override\n");
+	            	  out.write("\tpublic String "); out.write(annotatedClassElementName); out.write("() {\n ");
+	            	  out.write("\t\treturn \"");out.write(annotatedClassElementName); out.write("\";\n");
+	            	  out.write("\t}\n");
+	        	}
               	
 	         // Write End of class definition
               out.write("}\n");
