@@ -1,14 +1,15 @@
 package com.zonesoft.annotations.usage;
 
+import com.zonesoft.annotations.e2e_testing.PageModelFactory;
+
 public class RunUseRivers {
 
 	public static void main(String[] args) {
-		@SuppressWarnings("unused")
-		Rivers rivers = new Rivers();
-		System.out.println("CONGO=" + Rivers.CONGO);
+		Rivers rivers = PageModelFactory.createInstance(Rivers.class);
+		System.out.println("CONGO=" + rivers.CONGO());
 		System.out.println("NIGER=" + Rivers.NIGER);
-		System.out.println("NILE=" + Rivers.NILE);
-		System.out.println("ZAMBEZI=" + Rivers.ZAMBEZI);
+		System.out.println("NILE=" + rivers.NILE());
+		System.out.println("ZAMBEZI=" + rivers.ZAMBEZI());
 
 	}
 

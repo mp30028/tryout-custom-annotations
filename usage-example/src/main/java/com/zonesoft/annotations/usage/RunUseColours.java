@@ -1,16 +1,14 @@
 package com.zonesoft.annotations.usage;
 
+import com.zonesoft.annotations.e2e_testing.PageModelFactory;
+
 public class RunUseColours {
 
 	public static void main(String[] args) {
-		@SuppressWarnings("unused")
-		Colours colours = new Colours();
-		System.out.println("BLUE=" + Colours.BLUE);
-//		System.out.println("GREEN=" + colours.GREEN);
-		System.out.println("ORANGE=" + Colours.ORANGE);
-		System.out.println("YELLOW=" + Colours.YELLOW);
-		System.out.println("PURPLE=" + Colours.PURPLE);
-		System.out.println("RED=" + Colours.RED);
+		Colours colours = PageModelFactory.createInstance(Colours.class);
+		System.out.println("BLUE=" + colours.BLUE());
+		System.out.println("PURPLE=" + colours.PURPLE());
+		System.out.println("YELLOW=" + colours.YELLOW());
 	}
 
 }
