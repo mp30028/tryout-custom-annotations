@@ -6,7 +6,7 @@ import static com.zonesoft.annotations.e2e_testing.Constants.IMPLEMENTATION_SUFF
 public class PageModelFactory {
 	
 	@SuppressWarnings("unchecked")
-	public static <T> T createInstance(Class<T> klass) {
+	public static <T> T createPageModel(Class<T> klass) {
 		try {
 			return (T) Class.forName(klass.getName() + IMPLEMENTATION_SUFFIX).getConstructor().newInstance();
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
