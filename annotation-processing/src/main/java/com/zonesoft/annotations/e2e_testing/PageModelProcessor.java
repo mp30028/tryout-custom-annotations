@@ -17,6 +17,7 @@ import com.zonesoft.annotations.e2e_testing.helpers.PageModelHelper;
 import com.zonesoft.annotations.e2e_testing.helpers.PageModelHelper.NameTypes;
 
 
+
 @SupportedAnnotationTypes("com.zonesoft.annotations.e2e_testing.PageModel")
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
 @AutoService(Processor.class)
@@ -57,7 +58,8 @@ public class PageModelProcessor extends AbstractProcessor {
               	out.write("import static "); out.write(fullyQualifiedClassName); out.write(".*;\n\n");
               
             // Write Start of class definition
-              	out.write("public class "); out.write(targetSimpleClassName); out.write(" {\n");
+              	out.write("public class "); out.write(targetSimpleClassName); out.write("{\n");
+//              	out.write("public class "); out.write(targetSimpleClassName); out.write(" implements I"); out.write(simpleClassName); out.write("{\n");
               
               	// Write Start of Constructor
               		out.write("\tpublic "); out.write(targetSimpleClassName); out.write("() {\n");

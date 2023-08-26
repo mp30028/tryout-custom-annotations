@@ -4,7 +4,6 @@ import com.zonesoft.annotations.e2e_testing.PageModel;
 import com.zonesoft.annotations.e2e_testing.PageModelElement;
 
 @PageModel(pagePath = "/")
-//public class Colours{
 public class Colours extends ColoursExtender {
 	
 	@PageModelElement public static String BLUE;
