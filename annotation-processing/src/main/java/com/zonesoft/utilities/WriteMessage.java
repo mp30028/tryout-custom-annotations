@@ -1,4 +1,4 @@
-package com.zonesoft.annotations.utilities;
+package com.zonesoft.utilities;
 
 import java.text.MessageFormat;
 

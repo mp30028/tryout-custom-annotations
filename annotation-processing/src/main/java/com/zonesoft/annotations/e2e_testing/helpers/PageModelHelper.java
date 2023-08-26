@@ -1,5 +1,7 @@
 package com.zonesoft.annotations.e2e_testing.helpers;
 
+import static com.zonesoft.utilities.WriteMessage.writeMsg;
+
 import java.lang.annotation.Annotation;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -13,7 +15,6 @@ import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.TypeElement;
 
 import com.zonesoft.annotations.e2e_testing.PageModelElement;
-import static com.zonesoft.annotations.utilities.WriteMessage.writeMsg;
 
 
 

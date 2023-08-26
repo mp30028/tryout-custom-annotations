@@ -1,6 +1,6 @@
 package com.zonesoft.annotations.processors;
 
-import static com.zonesoft.annotations.utilities.WriteMessage.writeMsg;
+import static com.zonesoft.utilities.WriteMessage.writeMsg;
 
 import java.io.File;
 import java.io.PrintWriter;
