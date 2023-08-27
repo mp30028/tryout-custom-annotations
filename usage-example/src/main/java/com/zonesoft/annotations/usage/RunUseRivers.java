@@ -10,7 +10,7 @@ public class RunUseRivers {
 		System.out.println("NIGER=" + Rivers.NIGER);
 		System.out.println("NILE=" + rivers.NILE());
 		System.out.println("ZAMBEZI=" + rivers.ZAMBEZI());
-
+		System.out.println("Page-Path=" + rivers.getPagePath());
 	}
 
 }

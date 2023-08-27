@@ -9,6 +9,7 @@ public class RunUseColours {
 		System.out.println("BLUE=" + colours.BLUE());
 		System.out.println("PURPLE=" + colours.PURPLE());
 		System.out.println("YELLOW=" + colours.YELLOW());
+		System.out.println("Page-Path=" + colours.getPagePath());
 	}
 
 }
