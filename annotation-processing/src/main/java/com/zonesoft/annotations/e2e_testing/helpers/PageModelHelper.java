@@ -14,6 +14,7 @@ import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.TypeElement;
 
+import com.zonesoft.annotations.e2e_testing.PageModel;
 import com.zonesoft.annotations.e2e_testing.PageModelElement;
 
 
@@ -129,5 +130,18 @@ public class PageModelHelper {
 
 	public boolean isClassOrInterface(Element annotatedElement) {
 		return ((annotatedElement.getKind() == ElementKind.CLASS) ||(annotatedElement.getKind() == ElementKind.INTERFACE));		
+	}
+
+	public String getPagePathAttribute(Element annotatedClass) {		
+	    PageModel pageModelAnnotation = annotatedClass.getAnnotation(PageModel.class);				
+		return pageModelAnnotation.pagePath();
+//		String fullyQualifiedClassName = ((TypeElement) annotatedClass).getQualifiedName().toString();
+//		String simpleClassName = annotatedClass.getSimpleName().toString();				
+//		String packageName = parsePackageNameFromFullyQualifedName(fullyQualifiedClassName);
+//		Map<NameTypes, String> names = new HashMap<>();
+//		names.put(NameTypes.fullyQualifiedClassName, fullyQualifiedClassName);
+//		names.put(NameTypes.simpleClassName, simpleClassName);
+//		names.put(NameTypes.packageName, packageName);
+//		return names;		
 	}	
 }

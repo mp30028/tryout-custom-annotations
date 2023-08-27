@@ -39,11 +39,13 @@ public class PageModelProcessor extends AbstractProcessor {
 		String packageName = names.get(NameTypes.packageName);
 		String fullyQualifiedClassName = names.get(NameTypes.fullyQualifiedClassName);;
 		String targetSimpleClassName = simpleClassName + IMPLEMENTATION_SUFFIX;
-		String fullyQualifiedTargetClassName = packageName + "." + targetSimpleClassName;
+		String targetFullyQualifiedClassName = packageName + "." + targetSimpleClassName;
+//		String pagePathAttributeValue = "/SOME_DUMMY_PATH";
+		String pagePathAttributeValue = helper.getPagePathAttribute(annotatedClass);
 		
 		Writer out = null;
 		try {
-			JavaFileObject builderFile = processingEnv.getFiler().createSourceFile(fullyQualifiedTargetClassName);
+			JavaFileObject builderFile = processingEnv.getFiler().createSourceFile(targetFullyQualifiedClassName);
 			Messager messager = processingEnv.getMessager();
 			out = builderFile.openWriter();
 			
@@ -52,19 +54,30 @@ public class PageModelProcessor extends AbstractProcessor {
               
             // Write Imports
               	out.write("import static "); out.write(fullyQualifiedClassName); out.write(".*;\n\n");
+              	out.write("import com.zonesoft.modelling.AbstractPageModel;\n\n");
               
             // Write Start of class definition
-              	out.write("public class "); out.write(targetSimpleClassName); out.write(" implements "); out.write(simpleClassName); out.write("{\n");
+              	out.write("public class "); out.write(targetSimpleClassName); out.write(" extends AbstractPageModel implements "); out.write(simpleClassName); out.write("{\n");
+
+              		// field declarations
+              		out.write("\n\tprivate static final String PAGE_PATH = \"");out.write(pagePathAttributeValue); out.write("\";\n");
               	
-	            // Write class methods
-	      		for(Element annotatedClassElement: containedElements) {
-	            	  String annotatedClassElementName = annotatedClassElement.getSimpleName().toString();
-	            	  out.write("\n");
-	            	  out.write("\t@Override\n");
-	            	  out.write("\tpublic String "); out.write(annotatedClassElementName); out.write("() {\n ");
-	            	  out.write("\t\treturn \"");out.write(annotatedClassElementName); out.write("\";\n");
-	            	  out.write("\t}\n");
-	        	}
+	              	// Write Start of Constructor
+	          		out.write("\n\tpublic "); out.write(targetSimpleClassName); out.write("() {\n");          		
+		          		// Write Constructor Body
+		          		out.write("\t\t"); out.write("super(PAGE_PATH);\n");          		         
+		        	// Write End of Constructor
+		          		out.write("\t}\n");              	
+	              	
+		            // Write class methods
+		      		for(Element annotatedClassElement: containedElements) {
+		            	  String annotatedClassElementName = annotatedClassElement.getSimpleName().toString();
+		            	  out.write("\n");
+		            	  out.write("\t@Override\n");
+		            	  out.write("\tpublic String "); out.write(annotatedClassElementName); out.write("() {\n ");
+		            	  out.write("\t\treturn \"");out.write(annotatedClassElementName); out.write("\";\n");
+		            	  out.write("\t}\n");
+		        	}
               	
 	         // Write End of class definition
               out.write("}\n");
