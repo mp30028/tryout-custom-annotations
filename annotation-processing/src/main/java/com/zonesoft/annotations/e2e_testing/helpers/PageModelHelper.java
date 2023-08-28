@@ -16,6 +16,8 @@ import javax.lang.model.element.TypeElement;
 
 import com.zonesoft.annotations.e2e_testing.PageModel;
 import com.zonesoft.annotations.e2e_testing.PageModelElement;
+import com.zonesoft.modelling.framework.PageElementType;
+import com.zonesoft.modelling.framework.SelectBy;
 
 
 
@@ -109,6 +111,36 @@ public class PageModelHelper {
 	    }				
 	}
 	
+	public String getPagePathAttribute(Element annotatedClass) {		
+	    PageModel pageModelAnnotation = annotatedClass.getAnnotation(PageModel.class);				
+		return pageModelAnnotation.pagePath();
+	}
+	
+	public PageElementType getElementTypeAttribute(Element annotatedClassElement) {
+	    PageModelElement pageModelElmentAnnotation = annotatedClassElement.getAnnotation(PageModelElement.class);				
+		return pageModelElmentAnnotation.elementType();
+	}
+
+	public SelectBy getElementByAttribute(Element annotatedClassElement) {
+	    PageModelElement pageModelElmentAnnotation = annotatedClassElement.getAnnotation(PageModelElement.class);				
+		return pageModelElmentAnnotation.elementBy();
+	}
+
+	public String getElementHavingAttribute(Element annotatedClassElement) {
+	    PageModelElement pageModelElmentAnnotation = annotatedClassElement.getAnnotation(PageModelElement.class);				
+		return pageModelElmentAnnotation.elementHaving();
+	}
+
+	public SelectBy getPromptByAttribute(Element annotatedClassElement) {
+	    PageModelElement pageModelElmentAnnotation = annotatedClassElement.getAnnotation(PageModelElement.class);				
+		return pageModelElmentAnnotation.promptBy();
+	}
+
+	public String getPromptHavingAttribute(Element annotatedClassElement) {
+	    PageModelElement pageModelElmentAnnotation = annotatedClassElement.getAnnotation(PageModelElement.class);				
+		return pageModelElmentAnnotation.promptHaving();
+	}	
+	
 	public void inspectElements(String label, Set<Element> annotatedElements) {
 		writeMsg("{0}:annotatedElements.size() = {1}",label, annotatedElements.size());
 		for (Element annotatedElement: annotatedElements) {
@@ -132,16 +164,6 @@ public class PageModelHelper {
 		return ((annotatedElement.getKind() == ElementKind.CLASS) ||(annotatedElement.getKind() == ElementKind.INTERFACE));		
 	}
 
-	public String getPagePathAttribute(Element annotatedClass) {		
-	    PageModel pageModelAnnotation = annotatedClass.getAnnotation(PageModel.class);				
-		return pageModelAnnotation.pagePath();
-//		String fullyQualifiedClassName = ((TypeElement) annotatedClass).getQualifiedName().toString();
-//		String simpleClassName = annotatedClass.getSimpleName().toString();				
-//		String packageName = parsePackageNameFromFullyQualifedName(fullyQualifiedClassName);
-//		Map<NameTypes, String> names = new HashMap<>();
-//		names.put(NameTypes.fullyQualifiedClassName, fullyQualifiedClassName);
-//		names.put(NameTypes.simpleClassName, simpleClassName);
-//		names.put(NameTypes.packageName, packageName);
-//		return names;		
-	}	
+
+
 }

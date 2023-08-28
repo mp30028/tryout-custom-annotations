@@ -1,6 +1,9 @@
 package com.zonesoft.annotations.usage;
 
+import java.util.Map.Entry;
+
 import com.zonesoft.annotations.e2e_testing.PageModelFactory;
+import com.zonesoft.modelling.framework.ModelParameter;
 
 public class RunUseRivers {
 
@@ -11,6 +14,10 @@ public class RunUseRivers {
 		System.out.println("NILE=" + rivers.NILE());
 		System.out.println("ZAMBEZI=" + rivers.ZAMBEZI());
 		System.out.println("Page-Path=" + rivers.getPagePath());
+		for (Entry<String, ModelParameter> entry: rivers.parameters().entrySet()) {
+			System.out.println("parameter(" + entry.getKey()  + ") = " + entry.getValue().toString());
+		}			
+		
 	}
 
 }
