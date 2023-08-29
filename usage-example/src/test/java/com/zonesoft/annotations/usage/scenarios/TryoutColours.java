@@ -1,11 +1,12 @@
-package com.zonesoft.annotations.usage;
+package com.zonesoft.annotations.usage.scenarios;
 
 import java.util.Map.Entry;
 
 import com.zonesoft.annotations.e2e_testing.PageModelFactory;
+import com.zonesoft.annotations.usage.models.Colours;
 import com.zonesoft.modelling.framework.ModelParameter;
 
-public class RunUseColours {
+public class TryoutColours {
 
 	public static void main(String[] args) {
 		Colours colours = PageModelFactory.createPageModel(Colours.class);

@@ -1,11 +1,12 @@
-package com.zonesoft.annotations.usage;
+package com.zonesoft.annotations.usage.scenarios;
 
 import java.util.Map.Entry;
 
 import com.zonesoft.annotations.e2e_testing.PageModelFactory;
+import com.zonesoft.annotations.usage.models.Rivers;
 import com.zonesoft.modelling.framework.ModelParameter;
 
-public class RunUseRivers {
+public class TryoutRivers {
 
 	public static void main(String[] args) {
 		Rivers rivers = PageModelFactory.createPageModel(Rivers.class);
