@@ -1,8 +1,6 @@
-package com.zonesoft.modelling;
+package com.zonesoft.modelling.framework;
 
 import java.util.Map;
-
-import com.zonesoft.modelling.framework.ModelParameter;
 
 public interface IPageModel {
 	

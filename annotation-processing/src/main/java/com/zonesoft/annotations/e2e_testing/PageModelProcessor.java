@@ -1,5 +1,7 @@
 package com.zonesoft.annotations.e2e_testing;
 
+import static com.zonesoft.modelling.framework.Constants.*;
+
 import java.io.IOException;
 import java.io.Writer;
 import java.util.Map;
@@ -14,7 +16,6 @@ import javax.tools.Diagnostic;
 import com.google.auto.service.AutoService;
 import com.zonesoft.annotations.e2e_testing.helpers.PageModelHelper;
 import com.zonesoft.annotations.e2e_testing.helpers.PageModelHelper.NameTypes;
-import static com.zonesoft.annotations.e2e_testing.Constants.*;
 
 @SupportedAnnotationTypes("com.zonesoft.annotations.e2e_testing.PageModel")
 @SupportedSourceVersion(SourceVersion.RELEASE_8)

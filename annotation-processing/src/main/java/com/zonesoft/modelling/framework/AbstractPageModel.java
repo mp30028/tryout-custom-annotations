@@ -5,8 +5,6 @@ import static com.zonesoft.utilities.Stringify.*;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.zonesoft.modelling.IPageModel;
-
 public abstract class AbstractPageModel implements IPageModel {
 	
 	private final Map<String, ModelParameter> parameters = new HashMap<>();

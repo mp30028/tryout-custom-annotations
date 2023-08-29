@@ -2,9 +2,9 @@ package com.zonesoft.annotations.usage.scenarios;
 
 import java.util.Map.Entry;
 
-import com.zonesoft.annotations.e2e_testing.PageModelFactory;
 import com.zonesoft.annotations.usage.models.Rivers;
 import com.zonesoft.modelling.framework.ModelParameter;
+import com.zonesoft.modelling.framework.PageModelFactory;
 
 public class TryoutRivers {
 

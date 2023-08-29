@@ -1,4 +1,4 @@
-package com.zonesoft.annotations.e2e_testing;
+package com.zonesoft.modelling.framework;
 
 public class Constants {
 	public static final String PAGE_MODEL_ELEMENT = "com.zonesoft.annotations.e2e_testing.PageModelElement";

@@ -1,7 +1,8 @@
-package com.zonesoft.annotations.e2e_testing;
+package com.zonesoft.modelling.framework;
+
+import static com.zonesoft.modelling.framework.Constants.IMPLEMENTATION_SUFFIX;
 
 import java.lang.reflect.InvocationTargetException;
-import static com.zonesoft.annotations.e2e_testing.Constants.IMPLEMENTATION_SUFFIX;
 
 public class PageModelFactory {
 	

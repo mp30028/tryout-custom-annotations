@@ -2,7 +2,7 @@ package com.zonesoft.annotations.usage.models;
 
 import com.zonesoft.annotations.e2e_testing.PageModel;
 import com.zonesoft.annotations.e2e_testing.PageModelElement;
-import com.zonesoft.modelling.IPageModel;
+import com.zonesoft.modelling.framework.IPageModel;
 import com.zonesoft.modelling.framework.PageElementType;
 import com.zonesoft.modelling.framework.SelectBy;
 
