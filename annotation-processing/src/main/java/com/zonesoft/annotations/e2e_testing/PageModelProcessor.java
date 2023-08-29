@@ -19,7 +19,7 @@ import static com.zonesoft.annotations.e2e_testing.Constants.*;
 @SupportedAnnotationTypes("com.zonesoft.annotations.e2e_testing.PageModel")
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
 @AutoService(Processor.class)
-public class PageModelProcessor extends AbstractProcessor {
+public class PageModelProcessor extends AbstractProcessor {	
 
 	@Override
     public boolean process(Set<? extends TypeElement> supportedAnnotations, RoundEnvironment roundEnv) {		
@@ -28,6 +28,7 @@ public class PageModelProcessor extends AbstractProcessor {
 		
 		for (Element annotatedClass: annotatedClasses) {
 			writeImplementationClass(annotatedClass, helper);
+			writeExpectationsClass(annotatedClass, helper);
 		}
     	return true;
     }
@@ -123,5 +124,42 @@ public class PageModelProcessor extends AbstractProcessor {
 	    		//
 	    	}
 	    }		
-	}	
+	}
+	
+	private void writeExpectationsClass(Element annotatedClass, PageModelHelper helper) {
+		Set<Element> containedElements = helper.fetchAllClassElementsAnnotatedBy(annotatedClass, PAGE_MODEL_ELEMENT);		
+		Map<NameTypes, String> names = helper.getNames(annotatedClass);
+		String simpleClassName = names.get(NameTypes.simpleClassName);
+		String packageName = names.get(NameTypes.packageName);
+		String fullyQualifiedClassName = names.get(NameTypes.fullyQualifiedClassName);
+		String targetPackageName = packageName + "." + EXPECTATION_SUBPACKAGE;
+		String targetSimpleClassName = EXPECTATION_CLASS_PREFIX + simpleClassName;
+		String targetFullyQualifiedClassName = targetPackageName + "." + targetSimpleClassName;
+		
+		Writer out = null;
+		try {
+			JavaFileObject builderFile = processingEnv.getFiler().createSourceFile(targetFullyQualifiedClassName);
+			out = builderFile.openWriter();
+				//Package name
+          			out.write("package "); out.write(targetPackageName); out.write(";\n\n");
+                
+          		//Start of class definition
+                  	out.write("public class "); out.write(targetSimpleClassName);  out.write("{\n");
+    				
+                  	// generated code output goes here
+                  		out.write("\n//generated code output goes here\n");
+                  	
+    		      	out.write("}\n");
+    	 	         //End of class definition
+
+			out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+			try {
+				out.close();
+			} catch (Exception e2) {
+				//
+			}
+		}
+	}
 }
