@@ -11,22 +11,22 @@ public interface Rivers extends IPageModel {
 	
 	@PageModelElement(	
 			elementType = PageElementType.INPUT_BOX, 
-			elementBy = SelectBy.XPATH, elementHaving = "zambezi-input-box",
-			promptBy = SelectBy.ID, promptHaving = "prompt-for-zambezi"
+			selectElementBy = SelectBy.XPATH, selectElementWithValue = "zambezi-input-box",
+			selectPromptBy = SelectBy.ID, selectPromptWithValue = "prompt-for-zambezi"
 	)  
 	public String ZAMBEZI();
 		
 	@PageModelElement(	
 			elementType = PageElementType.INPUT_BOX, 
-			elementBy = SelectBy.XPATH, elementHaving = "nile-input-box",
-			promptBy = SelectBy.ID, promptHaving = "prompt-for-nile"
+			selectElementBy = SelectBy.XPATH, selectElementWithValue = "nile-input-box",
+			selectPromptBy = SelectBy.ID, selectPromptWithValue = "prompt-for-nile"
 	)   
 	public String NILE();
 		
 	@PageModelElement(	
 			elementType = PageElementType.INPUT_BOX, 
-			elementBy = SelectBy.XPATH, elementHaving = "congo-input-box",
-			promptBy = SelectBy.ID, promptHaving = "prompt-for-congo"
+			selectElementBy = SelectBy.XPATH, selectElementWithValue = "congo-input-box",
+			selectPromptBy = SelectBy.ID, selectPromptWithValue = "prompt-for-congo"
 	)    
 	public String CONGO();
 	

@@ -1,0 +1,71 @@
+package com.zonesoft.annotations.usage.models;
+
+import static com.zonesoft.modelling.framework.ModelParameter.modelParameter;
+
+import com.zonesoft.modelling.framework.AbstractPageModel;
+import com.zonesoft.modelling.framework.PageElementType;
+import com.zonesoft.modelling.framework.SelectBy;
+
+public class ColoursImplementation extends AbstractPageModel implements Colours{
+
+	private static final String PAGE_PATH = "/";
+
+	public ColoursImplementation() {
+		super(PAGE_PATH);
+		initialise();
+	}
+
+	private void initialise() {
+		parameters().put(
+			YELLOW(),
+			modelParameter()
+				.elementType(PageElementType.INPUT_BOX)
+				.selectElementBy(SelectBy.XPATH)
+				.selectElementWithValue("yellow-input-box")
+				.selectPromptBy(SelectBy.ID)
+				.selectPromptWithValue("prompt-for-yellow")
+				.promptText("PROMPT-FOR-BLUE")
+				.value("")
+		);
+
+		parameters().put(
+			GREEN(),
+			modelParameter()
+				.elementType(PageElementType.INPUT_BOX)
+				.selectElementBy(SelectBy.XPATH)
+				.selectElementWithValue("green-input-box")
+				.selectPromptBy(SelectBy.ID)
+				.selectPromptWithValue("prompt-for-green")
+				.promptText("PROMPT-FOR-GREEN")
+				.value("")				
+		);
+
+		parameters().put(
+			BLUE(),
+			modelParameter()
+				.elementType(PageElementType.HEADING)
+				.selectElementBy(SelectBy.ID)
+				.selectElementWithValue("blue-heading")
+				.selectPromptBy(SelectBy.NONE)
+				.selectPromptWithValue("")
+				.promptText("PROMPT-FOR-YELLOW")
+				.value("")				
+		);
+
+	}
+
+	@Override
+	public String YELLOW() {
+ 		return "YELLOW";
+	}
+
+	@Override
+	public String GREEN() {
+ 		return "GREEN";
+	}
+
+	@Override
+	public String BLUE() {
+ 		return "BLUE";
+	}
+}

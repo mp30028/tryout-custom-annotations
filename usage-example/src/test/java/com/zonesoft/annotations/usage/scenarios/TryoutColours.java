@@ -4,12 +4,12 @@ import java.util.Map.Entry;
 
 import com.zonesoft.annotations.usage.models.Colours;
 import com.zonesoft.modelling.framework.ModelParameter;
-import com.zonesoft.modelling.framework.PageModelFactory;
+import com.zonesoft.modelling.framework.Factory;
 
 public class TryoutColours {
 
 	public static void main(String[] args) {
-		Colours colours = PageModelFactory.createPageModel(Colours.class);
+		Colours colours = Factory.createPageModel(Colours.class);
 		System.out.println("BLUE=" + colours.BLUE());
 		System.out.println("GREEN=" + colours.GREEN());
 		System.out.println("YELLOW=" + colours.YELLOW());

@@ -123,22 +123,34 @@ public class PageModelHelper {
 
 	public SelectBy getElementByAttribute(Element annotatedClassElement) {
 	    PageModelElement pageModelElmentAnnotation = annotatedClassElement.getAnnotation(PageModelElement.class);				
-		return pageModelElmentAnnotation.elementBy();
+		return pageModelElmentAnnotation.selectElementBy();
 	}
 
 	public String getElementHavingAttribute(Element annotatedClassElement) {
 	    PageModelElement pageModelElmentAnnotation = annotatedClassElement.getAnnotation(PageModelElement.class);				
-		return pageModelElmentAnnotation.elementHaving();
+		return pageModelElmentAnnotation.selectElementWithValue();
 	}
 
 	public SelectBy getPromptByAttribute(Element annotatedClassElement) {
 	    PageModelElement pageModelElmentAnnotation = annotatedClassElement.getAnnotation(PageModelElement.class);				
-		return pageModelElmentAnnotation.promptBy();
+		return pageModelElmentAnnotation.selectPromptBy();
 	}
 
 	public String getPromptHavingAttribute(Element annotatedClassElement) {
 	    PageModelElement pageModelElmentAnnotation = annotatedClassElement.getAnnotation(PageModelElement.class);				
-		return pageModelElmentAnnotation.promptHaving();
+		return pageModelElmentAnnotation.selectPromptWithValue();
+	}
+	
+	public String getDefaultValueAttribute(Element annotatedClassElement) {
+	    PageModelElement pageModelElmentAnnotation = annotatedClassElement.getAnnotation(PageModelElement.class);				
+		return pageModelElmentAnnotation.defaultValue();
+
+	}
+
+	public String getPromptTextAttribute(Element annotatedClassElement) {
+	    PageModelElement pageModelElmentAnnotation = annotatedClassElement.getAnnotation(PageModelElement.class);				
+		return pageModelElmentAnnotation.promptText();
+
 	}	
 	
 	public void inspectElements(String label, Set<Element> annotatedElements) {
@@ -163,6 +175,8 @@ public class PageModelHelper {
 	public boolean isClassOrInterface(Element annotatedElement) {
 		return ((annotatedElement.getKind() == ElementKind.CLASS) ||(annotatedElement.getKind() == ElementKind.INTERFACE));		
 	}
+
+
 
 
 

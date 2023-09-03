@@ -11,21 +11,24 @@ public interface Colours extends IPageModel {
 
 	@PageModelElement(
 			elementType = PageElementType.HEADING, 
-			elementBy = SelectBy.ID, elementHaving = "blue-heading"
+			selectElementBy = SelectBy.ID, selectElementWithValue = "blue-heading",
+			promptText = "PROMPT-FOR-BLUE"
 	) 
 	public String BLUE();
 	
 	@PageModelElement(	
 			elementType = PageElementType.INPUT_BOX, 
-			elementBy = SelectBy.XPATH, elementHaving = "green-input-box",
-			promptBy = SelectBy.ID, promptHaving = "prompt-for-green"
+			selectElementBy = SelectBy.XPATH, selectElementWithValue = "green-input-box",
+			selectPromptBy = SelectBy.ID, selectPromptWithValue = "prompt-for-green",
+			defaultValue = "", promptText = "PROMPT-FOR-GREEN"
 	) 	
 	public String GREEN(); 	
 	
 	@PageModelElement(	
 			elementType = PageElementType.INPUT_BOX, 
-			elementBy = SelectBy.XPATH, elementHaving = "yellow-input-box",
-			promptBy = SelectBy.ID, promptHaving = "prompt-for-yellow"
+			selectElementBy = SelectBy.XPATH, selectElementWithValue = "yellow-input-box",
+			selectPromptBy = SelectBy.ID, selectPromptWithValue = "prompt-for-yellow",
+			defaultValue = "", promptText = "PROMPT-FOR-YELLOW"
 	) 	
 	public String YELLOW(); 
 

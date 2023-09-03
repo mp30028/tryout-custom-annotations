@@ -4,12 +4,12 @@ import java.util.Map.Entry;
 
 import com.zonesoft.annotations.usage.models.Rivers;
 import com.zonesoft.modelling.framework.ModelParameter;
-import com.zonesoft.modelling.framework.PageModelFactory;
+import com.zonesoft.modelling.framework.Factory;
 
 public class TryoutRivers {
 
 	public static void main(String[] args) {
-		Rivers rivers = PageModelFactory.createPageModel(Rivers.class);
+		Rivers rivers = Factory.createPageModel(Rivers.class);
 		System.out.println("CONGO=" + rivers.CONGO());
 		System.out.println("NIGER=" + Rivers.NIGER);
 		System.out.println("NILE=" + rivers.NILE());

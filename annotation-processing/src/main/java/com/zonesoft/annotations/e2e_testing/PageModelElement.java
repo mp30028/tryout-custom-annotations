@@ -9,8 +9,10 @@ import com.zonesoft.modelling.framework.SelectBy;
 @Retention(RetentionPolicy.SOURCE)
 public @interface PageModelElement {
 	PageElementType elementType();
-	SelectBy elementBy();
-	String elementHaving();
-	SelectBy promptBy() default SelectBy.NONE;
-	String promptHaving() default "";	
+	SelectBy selectElementBy();
+	String selectElementWithValue();
+	SelectBy selectPromptBy() default SelectBy.NONE;
+	String selectPromptWithValue() default "";
+	String defaultValue() default "";
+	String promptText() default "";	
 }

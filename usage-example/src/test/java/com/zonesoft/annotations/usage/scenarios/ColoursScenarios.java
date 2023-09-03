@@ -1,32 +1,39 @@
 package com.zonesoft.annotations.usage.scenarios;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
 
-import com.zonesoft.annotations.usage.expectations.PROTOTYPE_ExpectedColours;
+import com.zonesoft.modelling.framework.IExpectation ;
+import com.zonesoft.annotations.usage.models.Colours;
+//import com.zonesoft.annotations.usage.models.expectations.ExpectedColours;
+import com.zonesoft.modelling.framework.Factory;
 
 class ColoursScenarios {
 
 	@Test
 	void scenarioOne() {
-		PROTOTYPE_ExpectedColours expectedColours = new PROTOTYPE_ExpectedColours();
-		String elementOne = "ELEMENT-1";
+		Colours colours = Factory.createPageModel(Colours.class);
+		IExpectation<Colours> expectedColours = Factory.createExpectation(Colours.class, colours);
+		expectedColours.compareWith(colours);
 		String elementOneValue = "This is the value of ELEMENT-1";
+		expectedColours.expected(colours.BLUE(), elementOneValue);
+//		expectedColours.compareWith(colours);
 		
-		String elementTwo = "ELEMENT-2";
-		String elementTwoValue = "This is the value of ELEMENT-2";
-		
-		expectedColours
-			.setExpectedValue(elementOne, elementOneValue)
-			.setExpectedValue(elementTwo, elementTwoValue);
-		
+//		String elementOne = "ELEMENT-1";
 
-		assertEquals(expectedColours.getExpectedValue(elementOne), elementOneValue); 		
-		assertTrue(expectedColours.equals(elementOne, elementOneValue));
-		
-		assertEquals(expectedColours.getExpectedValue(elementTwo), elementTwoValue); 		
-		assertTrue(expectedColours.equals(elementTwo, elementTwoValue));
+//		
+//		String elementTwo = "ELEMENT-2";
+//		String elementTwoValue = "This is the value of ELEMENT-2";
+//		
+//		expectedColours
+//			.expected(elementOne, elementOneValue)
+//			.expected(elementTwo, elementTwoValue);
+//		
+//
+//		assertEquals(expectedColours.getExpected(elementOne), elementOneValue); 		
+//		assertTrue(expectedColours.equals(elementOne, elementOneValue));
+//		
+//		assertEquals(expectedColours.getExpected(elementTwo), elementTwoValue); 		
+//		assertTrue(expectedColours.equals(elementTwo, elementTwoValue));
 
 	}
 
