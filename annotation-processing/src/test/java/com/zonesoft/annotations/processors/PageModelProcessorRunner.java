@@ -1,6 +1,6 @@
 package com.zonesoft.annotations.processors;
 
-import static com.zonesoft.annotations.utilities.WriteMessage.writeMsg;
+import static com.zonesoft.utilities.WriteMessage.writeMsg;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -18,17 +18,20 @@ import javax.tools.ToolProvider;
 
 import org.junit.jupiter.api.Test;
 
-import com.zonesoft.annotations.processors.InspectProcessor;
-class InspectProcessorRunner {
+import com.zonesoft.annotations.e2e_testing.PageModelProcessor;
+class PageModelProcessorRunner {
 
 	   @Test
 	   public void runBuilderProcessor() throws Exception {
 	      String source = System.getProperty("user.dir");
 	      writeMsg("source={0}", source);
-	      Iterable<JavaFileObject> files = getSourceFiles(source);	      
+	      Iterable<JavaFileObject> files = getSourceFiles(source);
+	      for(JavaFileObject fileObj: files) {
+	    	  writeMsg("fileObj={0}", fileObj.getName());
+	      }
 	      JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
 	      CompilationTask task = compiler.getTask(new PrintWriter(System.out), null, null, null, null, files);
-	      task.setProcessors(Arrays.asList(new InspectProcessor()));
+	      task.setProcessors(Arrays.asList(new PageModelProcessor()));
 	      task.call();
 	   }
 

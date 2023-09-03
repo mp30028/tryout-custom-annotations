@@ -1,0 +1,13 @@
+package com.zonesoft.annotations.usage.models.expectations;
+
+import com.zonesoft.annotations.usage.models.Colours;
+import com.zonesoft.modelling.framework.AbstractExpectation;
+import com.zonesoft.modelling.framework.IExpectation;
+import com.zonesoft.modelling.framework.IPageModel;
+
+public class ExpectedColours extends AbstractExpectation<Colours>{
+
+	public ExpectedColours(Colours model){
+		super(model);
+	}
+}

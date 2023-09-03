@@ -1,0 +1,68 @@
+package com.zonesoft.annotations.usage.models.expectations;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import com.zonesoft.annotations.usage.models.Colours;
+import com.zonesoft.modelling.framework.ModelParameter;
+
+public class PROTOTYPE_ExpectedColours implements IExpectation<Colours>{
+	
+	private Map<String, String> expectedValues = new LinkedHashMap<>();
+	
+	private final Colours model;
+	
+	public PROTOTYPE_ExpectedColours(Colours model) {
+		this.model = model;
+		initialise();
+	}
+
+	private void initialise() {
+		for(Entry<String, ModelParameter> entry: model.parameters().entrySet()) {
+			setExpected(entry.getKey(), entry.getValue().getValue());
+		}
+	}
+	
+	@Override
+	public IExpectation<Colours> expected(String elementName, String expectedValue) {
+		expectedValues.put(elementName, expectedValue);
+		return this;
+	}
+
+	@Override
+	public String getExpected(String elementName) {
+		return expectedValues.get(elementName);		
+	}
+	
+	@Override
+	public void setExpected(String elementName, String expectedValue) {
+		expectedValues.put(elementName, expectedValue);		
+	}
+	
+	@Override
+	public boolean equals(String elementName, String valueToCompareAgainst) {
+		return expectedValues.get(elementName).contentEquals(valueToCompareAgainst);		
+	}
+	
+	@Override
+	public Colours compareWith(final Colours colours) {
+		assertEquals(this.model.getPagePath(), colours.getPagePath());
+		for(Entry<String, ModelParameter> entry: colours.parameters().entrySet()) {
+			String key = entry.getKey();
+			ModelParameter parameter = entry.getValue();
+			String value = parameter.getValue();
+			String prompt = parameter.getPromptText();
+			String expectedValue = this.model.parameters().get(key).getValue();
+			String expectedPrompt = this.model.parameters().get(key).getPromptText();
+			assertEquals(expectedValue,value);
+			assertEquals(expectedPrompt,prompt);
+		}
+		return colours;
+	}
+
+
+
+
+}
